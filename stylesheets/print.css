@@ -1,0 +1,60 @@
+/*Lucy Southall K1065379 - Sudoku 12-05-13 - Module C03060B - Sudoku Game for all*/
+@charset "utf-8";
+/* CSS Document */
+
+nav{/*removal of the sidebars for print*/
+display: none;
+}
+
+footer{/*removal of the footer for print*/
+display: none;
+}
+
+section{/*removal of the solve button for print*/
+display: none;
+}
+
+#board/* sets the id of the board for the inheritance of the other styles to link to*/
+{/* white background */	
+	background: #FFF;
+}	
+.board {/* game board container */	
+	margin:20px auto;/* top border 20px rest auto */	
+	padding:0;
+	width:390px;
+	border:2px solid #4f494c;/* container border of game in grey*/	
+	overflow:hidden;}
+.board ul {
+	padding:0;
+	list-style-position:inside;/* position of list*/	
+	list-style-type:none;/* removal of styling */	
+	overflow:hidden;float:left;}
+	
+.board ul li .grid {
+	padding:0;
+	width:130px;
+	height:130px;
+	float:left; 
+	}
+.board ul li .grid ul {/* 9x9 grid containers and border */	
+	margin:0;
+	padding:0;
+	width:130px;
+	height:130px;
+	border:2px solid #4f494c;
+	}
+.board ul li .grid ul li .box {/* boxes of 9x9 grid  */	
+	margin:0 ;
+	padding:0;
+	width:43px;
+	height:43px;
+	float:left;}
+.board ul li .grid ul li .box input[type="text"] {/* box styling of 9x9 grid for input field  */	
+	margin:0;
+	padding:5px;
+	width:32px;
+	height:32px;
+	border:1px solid #330033;
+	text-align:center;
+		}
+	

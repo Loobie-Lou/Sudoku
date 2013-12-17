@@ -1,0 +1,217 @@
+/*Lucy Southall K1065379 - Sudoku 12-05-13 - Module C03060B - Sudoku Game for all*/
+	html, body, div, span, p, blockquote, a,img,center, nav,ol, ul, li, table, tbody, tr, th, td, footer, header,  menu, section,time{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 1em;
+		font: inherit;
+		font-family: 'Open Sans', sans-serif;
+		vertical-align: baseline; }
+		
+	font-family: 'Open Sans', sans-serif;		
+		
+	aside, footer, header,section {/* sets display style */	
+		display: block; }
+		
+	body {/* line height */	
+		line-height: 1em; }
+		
+	ol, ul {
+		list-style: none; }/*this removes numbering */
+		
+		
+	.right{
+		text-align: right;
+		line-height: 0.500em;
+		}	
+	.centre{
+		text-align:center;
+		padding:1.000em 0em 0em 0em;
+		line-height:0.500em;
+		}	
+
+
+/* #Basic Styles
+================================================== */
+	body {
+		background-color:#000;/*sets the picture for the background*/
+		font-family: 'Open Sans', sans-serif;/*sets the webfont which is used*/
+		color: #FFF;/*colour of all text changed to be set as blue*/
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering this makes the font smooth rather than pixelated*/
+		-webkit-text-size-adjust: 100%;/*  */
+ }
+
+
+/* #Typography
+================================================== */
+
+	p { margin: 0 0 0.875em 0; }
+	p.lead { font-size: 1.313em; line-height: 1.688em; color: #FFF;  }
+
+	em { font-style: italic; }
+	strong { font-weight: bold; color: #FFF; }
+	small { font-size: 80%; }
+
+
+/* #Links
+================================================== */
+	a, a:visited { color: #333; text-decoration: underline; outline: 0; }
+	a:hover, a:focus { color: #000; }
+	p a, p a:visited { line-height: inherit; }
+
+
+/* #Lists
+================================================== */
+
+
+	ul { list-style: none outside; }
+	ul.disc { margin-left: 1.875em; 
+			 list-style: disc outside; }
+	li { margin-bottom: 0.375em; }
+
+
+/* #Images
+================================================== */
+
+	img{
+		float:left;
+		width:auto;
+		height: auto; }
+
+/* #Buttons
+================================================== */
+
+	.button
+	 {
+	  background: #FFF; /* Old browsers */
+	  border: 1px solid #aaa;
+	  -moz-border-radius: 0.188em;
+	  -webkit-border-radius: 0.188em;
+	  border-radius: 0.188em;
+	  color:#000;
+	  display: inline-block;
+	  font-size: 0.875em;
+	  font-weight: bold;
+	  text-decoration: none;
+	  cursor: pointer;
+	  margin-bottom:1.250em;
+	  line-height: normal;
+	  padding: 0.500em 1.000em;
+	  font-family: 'Open Sans', sans-serif; }
+
+	  
+
+	.button:hover {
+		color: #FFF;
+		background: #000; /* Old browsers */
+  		border: 0.125em solid #888;
+	 	border-top: 0.125em solid #aaa;
+	    border-left: 0.125em solid #aaa; }
+
+	.button:active {
+		color:#FFF;
+		border: 0.125em solid #FFF;
+		background: #000;} /* Old browsers */
+
+	.button.full-width {
+		width: 99%;/*to stop overflow over div*/
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; 
+		-moz-border-radius: 0.938em;
+		-webkit-border-radius: 0.938em;
+		border-radius: 0.938em;}
+
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
+
+/* Div's
+==================================================== */
+
+.top{/* header and footer css  */	
+	background-color:#000;
+	color:#FFF;
+	margin: 1.250em 0 0 0 ;
+	padding: 1.000em;
+	border-radius: 0.938em; /*rounded corners   */
+}
+
+.logo{
+		top: 0.625em;
+		left: 1.563em;
+		width: 12.500em;
+		height: 4.438em;
+		background-image:url('../images/logo.png');
+	
+	}
+
+
+	.side{
+		height:auto;
+		margin-top:1.250em;
+		border-radius: 0.938em;/*rounded corners on side  */
+
+/*---------------ADDING BACKGROUND GRADIENT-----------------*/
+
+ /* fallback */
+  background-color:#000000;
+}
+
+.center{
+	margin-top: 1.875em;
+}
+.radius{/* rounded corners */	
+	border-radius: 15px;
+}
+
+<!-- =======================Fmw========================= -->
+
+#board/* sets the id of the board for the inheritance of the other styles to link to*/
+{/* white background */	
+	  background-color:#CCC;}	
+	  
+.board {/* game board container */	
+	margin:1.250em auto;/* top border 1.250em rest auto */	
+	padding:0;
+	width:24.375em;
+	border:0.125em solid #4f494c;/* container border of game in grey*/	
+	overflow:hidden;}
+	
+.board ul {
+	padding:0;
+	list-style-position:inside;/* position of list*/	
+	list-style-type:none;/* removal of styling */	
+	overflow:hidden;float:left;}
+	
+.board ul li .grid {
+	padding:0;
+	width:8.125em;
+	height:8.125em;
+	float:left; 
+	}
+.board ul li .grid ul {/* 9x9 grid containers and border */	
+	margin:0;
+	padding:0;
+	width:8.125em;
+	height:8.125em;
+	border:0.125em solid #4f494c;
+	}
+.board ul li .grid ul li .box {/* boxes of 9x9 grid  */	
+	margin:0 ;
+	padding:0;
+	width:2.688em;
+	height:2.688em;
+	float:left;}
+.board ul li .grid ul li .box input[type="text"] {/* box styling of 9x9 grid for input field  */	
+	margin:0;
+	padding:0.313em;
+	width:2.688em;
+	height:2.688em;
+	border:0.125em solid #330033;
+	text-align:center;
+		}
+	

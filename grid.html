@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Sudoku</title>
+	<meta name="Sudoku Game for all" content="">
+	<meta name="Lucy Southall - K1065379 " content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS stylesheets options 
+  ================================================== -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/option1.css" title="default">	
+	<link rel="stylesheet" type="text/css" href="stylesheets/base.css" title="option2" >
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"/>
+		
+
+    <!-- framework stylesheet-->
+    <link rel="stylesheet" href="stylesheets/skeleton.css">
+
+    <!-- google font being used for the site-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
+	<script type="text/javascript" src="functions1.js"></script>
+
+</head>
+
+<!-- body layout-->
+<body>
+<!-- holding container-->
+	<div class="container">
+  <!-- header start full width of page, using grid so 16 columns-->  
+    <header>
+		<div id="header" class="sixteen columns top">
+           <div class="logo"></div>
+			<p class="right">Author - Lucy Southall (K1065379)</p>
+            <p class="right">Assignment - CO3060B 1/1</p>
+			<hr />
+		</div>
+   </header>    
+  <!-- end of header --> 
+   <!-- start of the sidebar, mirrored CSS style on righthand side bar--> 
+	
+     <div id="sidebar" class="three columns side">
+        <nav>		
+        <!-- buttons to select game level, passes level into Javascript-->		
+        <ul> 
+            <li><a href="#" onclick="levels('1')" class="full-width button">Easy</a></li>
+            <li><a href="#" onclick="levels('2')" class="full-width button">Medium</a></li>
+            <li><a href="#" onclick="levels('3')" class="full-width button">Difficult</a></li>
+         </ul>
+					<ul class="disc"><!-- sets the bullets to be circles-->
+            			<li>Choose your level.</li>
+						<li>In each 3 x 3 square include numbers 1 to 9</li>
+						<li>Check your answers.</li>
+					</ul>	
+        <ul>         
+ 			<li> <a href="#" onclick="solutions()" class="full-width button">Solve</a> </li>
+            <li> <a href="#" onclick="check()" class="full-width button">Check</a> </li>                 
+		</ul>
+	</nav>
+	</div>
+    
+ <!-- end of sidebar-->       
+ <!-- start of central unit-->       
+		<div class="ten columns center">
+            <strong id="selected">You are currently playing the <em>Medium Level</em> game</strong><!--javascript completes the level being played -->
+		<!-- start of game board CSS the value of the game is defined-->	
+    		<div id="board">
+					<div class="board"><!-- sets game to medium-->
+                    <input id="board" value="2" type="hidden"/>
+      				  	<ul>
+       						 <li>
+            <!-- grid for game !-->
+            <div class="grid" >
+                <ul>
+                <li><!-- within input the validCell function sends value when entered for checking -->
+                    <div class="box"><input type="text" id="cell0" value="2" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell1" value="4" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell2" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell3" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell4" value="5" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell5" value="7" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell6" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell7" value="3" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell8" value="6" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+                                    
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell9" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell10" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell11" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell12" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell13" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell14" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell15" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell16" value="8" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell17" value="9" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+                                  
+            <div class="grid">
+            
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell18" value="3" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell19" value="7" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell20" value="8" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell21" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell22" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell23" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell24" value="2" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell25" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell26" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+        </li>
+                <li>
+                                   
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell27" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell28" value="6" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell29" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell30" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell31" value="4" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell32" value="1" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell33" value="7" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell34" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell35" value="2" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+                                   
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell36" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell37" value="8" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell38" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell39" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell40" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell41" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell42" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell43" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell44" value="5" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+                                    
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell45" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell46" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell47" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell48" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell49" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell50" value="5" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell51" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell52" value="1" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell53" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+                                  
+                </li>
+                <li>
+                                  
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell54" value="1" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell55" value="3" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell56" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell57" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell58" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell59" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell60" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell61" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell62" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                </ul>
+            </div>
+                                  
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell63" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell64" value="5" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                    <div class="box"><input type="text" id="cell65" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)"/></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell66" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell67" value="3" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell68" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell69" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell70" value="2" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell71" value="6" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                </li>
+                </ul>
+            </div>
+                                    
+            <div class="grid">
+                <ul>
+                <li>
+                    <div class="box"><input type="text" id="cell72" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell73" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell74" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell75" value="8" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell76" value="1" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell77" value="2" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                </li>
+                <li>
+                    <div class="box"><input type="text" id="cell78" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell79" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                    <div class="box"><input type="text" id="cell80" value="" maxlength="1" onchange="validCell(this)" onfocus="getID(this.id)" /></div>
+                </li>
+                </ul>
+            </div>
+                                   
+                </li>
+    
+        </ul>
+<!-- -->
+ 
+ 
+    </div>
+    </div>
+    				
+                    			
+                     
+
+
+		
+	</div>
+
+<!--start of right hand sidebar -->
+	<div class="three columns side">
+        <nav>
+        	<ul>
+                <li><a href="#" class="full-width button" onclick="setActiveStyleSheet('default'); return false;">Colour</a></li>
+                <li><a href="#" class="full-width button" onclick="setActiveStyleSheet('option2'); return false;">White on Black</a></li>
+                <li><a href="#" class="full-width button"  onClick="Mono(); return false;">Black on White</a></li>
+                <li><a href="#" class="full-width button"  onClick="Reset_colour(); return false;">Reset</a> </li>          
+			</ul>
+            
+   			 <p class = "centre">Font Size</p>
+              	<ul>  
+                    <li><a href="#" class="full-width button" title="Increase Font Size" onclick="IncreaseFont();">A+</a></li>
+                    <li><a href="#" class="full-width button" title="Decrease Font Size" onclick="DecreaseFont();">A-</a></li>
+                    <li><a href="#" class="full-width button"  title="Reset Font Size" onclick="ResetFont();">Reset</a></li>
+      			</ul>
+  		</nav>
+
+	</div>
+        
+           
+<!--start of full width footer -->		     
+        <footer>
+			<div class="sixteen columns top radius">
+
+				<p>Lecturer - Dr. Wayne Huang</p>
+              <img src="images/HTML5_Logo_64.png" alt="HTML5 validation logo" width="64" height="64" alt="HTML5 logo">
+             					
+                                 <p class="right" id="date_time"></p>
+           				 <script type="text/javascript">window.onload = date_time('date_time');</script>
+            					<span id="date_mod"></span>   
+            			 <script type="text/javascript">window.onload = date_mod('date_mod');</script>
+           						 <p class="right" id="last_mod"></p>   
+           				 <script type="text/javascript">window.onload = last_mod('last_mod');</script>
+            
+     	</div><!-- container -->       
+     </footer>
+
+
+
+<!-- End Document-->
+
+</div>
+</body>
+</html>
